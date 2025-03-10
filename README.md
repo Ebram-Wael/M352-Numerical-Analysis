@@ -2,8 +2,7 @@
 
 This repository contains implementations of numerical methods using **Octave**. The goal is to apply and explore fundamental **Numerical Analysis** techniques to solve mathematical problems.
 
-> [!IMPORTANT]
->[GNU Octave](https://www.gnu.org/software/octave/) (Recommended for running the scripts)
+> [!IMPORTANT] >[GNU Octave](https://www.gnu.org/software/octave/) (Recommended for running the scripts)
 
 ## 🚀 Getting Started
 
@@ -150,3 +149,56 @@ The numerical solutions will be plotted and saved as:
 ![Heun's Method Plot](ODEs/imgs/heuns_method_plot.png)
 ![Euler's Forward Method Plot](ODEs/imgs/forward-euler_method_plot.png)
 ![Euler's Backward Method Plot](ODEs/imgs/backward_euler_method_plot.png)
+
+## Task2
+
+### 1.Runge-Kutta (RK4) Method
+
+The classical fourth-order Runge-Kutta method is given by:
+
+\[
+y\_{n+1} = y_n + \frac{h}{6} (k_1 + 2k_2 + 2k_3 + k_4)
+\]
+where:
+
+- \( k_1 = f(t_n, y_n) \)
+- \( k_2 = f(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_1) \)
+- \( k_3 = f(t_n + \frac{h}{2}, y_n + \frac{h}{2} k_2) \)
+- \( k_4 = f(t_n + h, y_n + h k_3) \)
+
+**Example Usage:**
+
+```octave
+f = @(t, y) -2*t*y; % Example: dy/dt = -2*t*y
+[t, y] = runge_kutta_4(f, 0, 1, 0.1, 10);
+plot(t, y, 'o-');
+xlabel('t'); ylabel('y');
+title('Runge-Kutta 4th Order');
+```
+
+![Rungge-Kutta 4th Order plot](ODEs/imgs/runge-kutta-4-method.png)
+
+---
+
+## 2. Multistep Methods (Adams-Bashforth)
+
+Multistep methods use multiple past points to compute the next point. The **Adams-Bashforth (two-step) method** is:
+
+\[
+y*{n+1} = y_n + \frac{h}{2} \left(3f(t_n, y_n) - f(t*{n-1}, y\_{n-1})\right)
+\]
+
+This method requires an initial value, which we can compute using RK4.
+
+### **Implementation in Octave**
+
+```octave
+% Example Usage:
+f = @(t, y) -2*t*y; % Example: dy/dt = -2*t*y
+[t, y] = adams_bashforth_2(f, 0, 1, 0.1, 10);
+plot(t, y, 'o-');
+xlabel('t'); ylabel('y');
+title('Adams-Bashforth 2-Step');
+```
+
+![Adams-Bashforth Method Plot](ODEs/imgs/runge-kutta-4-method.png)
