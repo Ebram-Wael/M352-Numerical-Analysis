@@ -148,4 +148,4 @@ The numerical solutions will be plotted and saved as:
 
 ![Heun's Method Plot](ODEs/imgs/heuns_method_plot.png)
 ![Euler's Forward Method Plot](ODEs/imgs/forward-euler_method_plot.png)
-![Euler's Backward Method Plot](ODEs/imgs/backward-euler_method_plot.png)
+![Euler's Backward Method Plot](ODEs/imgs/backward_euler_method_plot.png)
