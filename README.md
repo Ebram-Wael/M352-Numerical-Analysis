@@ -2,7 +2,8 @@
 
 This repository contains implementations of numerical methods using **Octave**. The goal is to apply and explore fundamental **Numerical Analysis** techniques to solve mathematical problems.
 
-> [!IMPORTANT] >[GNU Octave](https://www.gnu.org/software/octave/) (Recommended for running the scripts)
+> [!IMPORTANT]
+>[GNU Octave](https://www.gnu.org/software/octave/) (Recommended for running the scripts)
 
 ## 🚀 Getting Started
 
