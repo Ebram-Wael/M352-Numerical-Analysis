@@ -59,7 +59,31 @@ function falling_body_gui()
         xlim([0 Tmax]);
         ylim([min(v)-5, max(v)+5]);
 
-
+        ask_time_field();
     end
+ function ask_time_field()
+        fig2 = figure('Units', 'normalized', 'Position', [0.4 0.4 0.2 0.2], ...
+                      'Name', 'Velocity at Specific Time', 'NumberTitle', 'off');
 
+        uicontrol('Style', 'text', 'Units', 'normalized', ...
+                  'Position', [0.1 0.6 0.8 0.2], 'String', 'Enter Time (s):');
+
+        timeField = uicontrol('Style', 'edit', 'Units', 'normalized', ...
+                              'Position', [0.2 0.4 0.6 0.2]);
+
+        uicontrol('Style', 'pushbutton', 'Units', 'normalized', ...
+                  'Position', [0.3 0.1 0.4 0.2], 'String', 'Get Velocity', ...
+                  'Callback', @(src, event) get_velocity());
+
+        function get_velocity()
+            user_time = str2double(get(timeField, 'String'));
+            if isnan(user_time)
+                errordlg('Please enter a valid number.', 'Input Error');
+                return;
+            end
+
+            velocity_at_time = interp1(t, v, user_time, 'linear', 'extrap');
+            msgbox(['Velocity at t = ', num2str(user_time), ' s is ', num2str(velocity_at_time), ' m/s']);
+        end
+    end
 end
