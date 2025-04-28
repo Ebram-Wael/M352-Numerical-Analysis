@@ -4,6 +4,10 @@
 
 The Falling Body Solver is a MATLAB-based interactive GUI application that simulates the motion of objects falling under gravity with air resistance. This tool allows users to explore how parameters such as mass and air resistance affect the velocity profile of falling objects.
 
+> Click on the image to see the full video!
+
+[![Project Overview](presintation/example_diagram.png)](https://drive.google.com/file/d/1Z_d1jDxz9k0-nD5XuXuMtBnehEm3z_xF/view?usp=drive_link)
+
 ## Features
 
 - User-friendly graphical interface for parameter input
